@@ -45,10 +45,10 @@ const createUser = (req, res) => {
                 <div>
                     <div align="center">
                         <h1 style="font-size:50px; color: blue">Correo de confirmacion</h1>
-                        <p>Este correo es para que verifique su cuenta http://localhost:3000/api/v1/usuarios/activate/${data._id}</p>
+                        <p>Let's confirm your email address.</p>
                     </div>
                     <div align="center">
-                        <button href="http://localhost:3000/api/v1/usuarios/activate/${data._id}" class="button" type="button">Hit me baby one more time!</button>
+                    <a href="http://localhost:3000/api/v1/usuarios/activate/${data._id}" class="button">Confirm Email Address</a>
                     </div>
                 </div>
             </body>`
@@ -191,7 +191,7 @@ const activateUser = (req, res) => {
     _user.update(query, { $set: newData },
     ).then((data) => {
         res.status(status.OK);
-        res.json({ msg: 'Exito!!', data: data });
+        res.json({ msg: 'Active User!!'});
     })
         .catch((err) => {
             res.status(status.NOT_FOUND);
